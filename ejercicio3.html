@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h2>
+                Resultado: <span class="resultado"></span>
+            </h2>
+            <div>
+                <div>
+                    <div>
+                        <label for="">Valor 1</label>
+                        <input id="valor1" type="text">
+                    </div>
+                    <div>
+                        <label for="">Valor 2</label>
+                        <input id="valor2" type="text">
+                    </div>
+                    <div style="display: flex">
+                        <button id="btn-sumar" type="button">
+                            Sumar
+                        </button>
+                        <button id="btn-restar" type="button">
+                            Restar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Definir variables
+    const num1 = document.querySelector("#valor1");
+    const num2 = document.querySelector("#valor2");
+    const btnSumar = document.querySelector("#btn-sumar");
+    const btnRestar = document.querySelector("#btn-restar");
+    let inputResultado = document.querySelector(".resultado");
+    
+    //funcion para sumar
+    function suma(uno, dos) {
+      let resultado = uno + dos
+    //evalua si el resultado es menos que 0 o es negativo
+      if(resultado < 0){
+          return 0
+      }else {
+          return resultado
+      }
+    }
+    //funcion para restar
+    function resta(uno, dos) {
+      let resultado = uno - dos
+    //evalua si el resultado es menos que 0 o es negativo
+      if(resultado < 0){
+          return 0
+      }else {
+          return resultado
+      }
+    }
+    //funcion para imprimir resultado
+    function escribirResultado (text){
+        inputResultado.textContent= text
+    }
+    
+    //agregar eventos a los boton suma
+    btnSumar.addEventListener("click",function() {
+        let valor1 = parseInt(num1.value)
+        let valor2 = parseInt(num2.value)
+       let resultadoSuma = suma(valor1, valor2)
+       escribirResultado(resultadoSuma);
+    });
+
+    //agregar eventos a los boton resta
+    btnRestar.addEventListener("click",function() {
+        let valor1 = parseInt(num1.value)
+        let valor2 = parseInt(num2.value)
+       let resultadoResta = resta(valor1, valor2)
+       escribirResultado(resultadoResta);
+    });
+
+    </script>
+</body>
+
+</html>
